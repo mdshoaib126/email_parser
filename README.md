@@ -14,54 +14,54 @@ This project involves creating a command to parse raw email content and extract 
 ## Setup Instructions 
 
 ### Clone the Repository
-git clone https://github.com/mdshoaib126/email_parser.git
-cd email_parser
+
+    git clone https://github.com/mdshoaib126/email_parser.git
+    cd email_parser
 
 
 ### Install Dependencies
 
-bash composer install
+    composer install
  
 ### Environment Configuration
 
 - Copy the .env.example file to .env and update the environment variables accordingly.
 
-bash cp .env.example .env
+    cp .env.example .env
 
 ### Database Migration
 - Run the migrations to create the necessary database tables.
 
-bash php artisan migrate
+    php artisan migrate
 
 
 ### Seed the Database
 
 - To seed the users table with sample data, use the following command:
 
-bash php artisan db:seed --class=UserSeeder
+    php artisan db:seed --class=UserSeeder
 
 ### Generate Application Key
 
-bash php artisan key:generate
+    php artisan key:generate
 
 ### Set Up Scheduled Command
 
 - To run the command every hour, add the following line to the app/Console/Kernel.php file in the schedule method:
 
-bash $schedule->command('emails:parse')->hourly();
+    $schedule->command('emails:parse')->hourly();
 
 ### Run the Scheduler
 
-bash * * * * * php /path_to_your_project/artisan schedule:run >> /dev/null 2>&1
+    * * * * * php /path_to_your_project/artisan schedule:run >> /dev/null 2>&1
 
 ### Start the Laravel Server
 
-bash php artisan serve
+    php artisan serve
 
 ### API Endpoints
 
 #### Authentication (Token Generation)
-- 
 
 - POST /api/login
 - Description: Receive a Bearer token.
