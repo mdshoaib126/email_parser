@@ -14,9 +14,9 @@ This project involves creating a command to parse raw email content and extract 
 ## Setup Instructions 
 
 ### Clone the Repository
+git clone https://github.com/mdshoaib126/email_parser.git
+cd email_parser
 
-bash git clone https://github.com/mdshoaib126/email_parser.git
-bash cd email_parser
 
 ### Install Dependencies
 
@@ -60,44 +60,44 @@ bash php artisan serve
 
 ### API Endpoints
 
-#### Authentication
-- Token Generation
+#### Authentication (Token Generation)
+- 
 
-POST /api/login
-Description: Receive a Bearer token.
-BODY: {"email": "testing@gmail.com", "password": "123456"}
+- POST /api/login
+- Description: Receive a Bearer token.
+- BODY: {"email": "testing@gmail.com", "password": "123456"}
 
 curl -X POST -H "Content-Type: application/json" -d '{"email": "testing@gmail.com", "password": "123456"}' http://127.0.0.1:8000/api/login
 
-- Store
+#### Store
 
-POST /api/emails
-Description: Create a new record in the successful_emails table and parse it.
-Authentication: Bearer token required
+- POST /api/emails
+- Description: Create a new record in the successful_emails table and parse it.
+- Authentication: Bearer token required
 
 curl -X POST -H "Authorization: Bearer YOUR_AUTH_TOKEN" -H "Content-Type: application/json" -d '{"email": "your_raw_email_content"}' http://127.0.0.1:8000/api/emails
 
-- Get by ID
+#### Get by ID
 
-GET /api/emails/{id}
-Description: Fetch a single record by ID.
-Authentication: Bearer token required
+- GET /api/emails/{id}
+- Description: Fetch a single record by ID.
+- Authentication: Bearer token required
 
-- Update
+#### Update
 
-PUT /api/emails/{id}
-Description: Update a single record based on the ID passed.
-Authentication: Bearer token required
+- PUT /api/emails/{id}
+- Description: Update a single record based on the ID passed.
+- Authentication: Bearer token required
 
-- Get All
+#### Get All
 
-GET /api/emails
-Description: Return all records excluding deleted items. Pagination is optional.
-Authentication: Bearer token required
+- GET /api/emails
+- Description: Return all records excluding deleted items. Pagination is optional.
+- Authentication: Bearer token required
 
-- Delete by ID
+#### Delete by ID
 
-DELETE /api/emails/{id}
-Description: Soft delete a record based on the ID passed.
-Authentication: Bearer token required
+- DELETE /api/emails/{id}
+- Description: Soft delete a record based on the ID passed.
+- Authentication: Bearer token required
 
