@@ -67,7 +67,7 @@ This project involves creating a command to parse raw email content and extract 
 - Description: Receive a Bearer token.
 - BODY: {"email": "testing@gmail.com", "password": "123456"}
 
-curl -X POST -H "Content-Type: application/json" -d '{"email": "testing@gmail.com", "password": "123456"}' http://127.0.0.1:8000/api/login
+    curl -X POST -H "Content-Type: application/json" -d '{"email": "testing@gmail.com", "password": "123456"}' http://127.0.0.1:8000/api/login
 
 #### Store
 
@@ -75,7 +75,7 @@ curl -X POST -H "Content-Type: application/json" -d '{"email": "testing@gmail.co
 - Description: Create a new record in the successful_emails table and parse it.
 - Authentication: Bearer token required
 
-curl -X POST -H "Authorization: Bearer YOUR_AUTH_TOKEN" -H "Content-Type: application/json" -d '{"email": "your_raw_email_content"}' http://127.0.0.1:8000/api/emails
+    curl -X POST -H "Authorization: Bearer YOUR_TOKEN" -H "Content-Type: application/json" -d '{"email": "your_raw_email_content"}' http://127.0.0.1:8000/api/emails
 
 
 #### Get by ID
@@ -84,11 +84,15 @@ curl -X POST -H "Authorization: Bearer YOUR_AUTH_TOKEN" -H "Content-Type: applic
 - Description: Fetch a single record by ID.
 - Authentication: Bearer token required
 
+    curl -H "Authorization: Bearer YOUR_TOKEN" http://127.0.0.1:8000/api/emails/1
+
 #### Update
 
 - PUT /api/emails/{id}
 - Description: Update a single record based on the ID passed.
 - Authentication: Bearer token required
+
+    curl -X PUT -H "Authorization: Bearer YOUR_TOKEN" -H "Content-Type: application/json" -d '{"email": "updated_raw_email_content"}' http://127.0.0.1:8000/api/emails/1
 
 #### Get All
 
@@ -96,9 +100,12 @@ curl -X POST -H "Authorization: Bearer YOUR_AUTH_TOKEN" -H "Content-Type: applic
 - Description: Return all records excluding deleted items. Pagination is optional.
 - Authentication: Bearer token required
 
+    curl -H "Authorization: Bearer YOUR_TOKEN" http://127.0.0.1:8000/api/emails
+
 #### Delete by ID
 
 - DELETE /api/emails/{id}
 - Description: Soft delete a record based on the ID passed.
 - Authentication: Bearer token required
 
+    curl -X DELETE -H "Authorization: Bearer YOUR_TOKEN" http://127.0.0.1:8000/api/emails/1
